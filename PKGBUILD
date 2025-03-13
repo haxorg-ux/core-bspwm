@@ -5,7 +5,7 @@ pkgver=1.0
 pkgrel=2
 pkgdesc="Bspwm Configurations for corelinux"
 arch=('any')
-url="https://github.com/archcraft-os/archcraft-bspwm"
+url="https://github.com/haxorg-ux/core-bspwm"
 license=('GPL3')
 depends=('bspwm' 'sxhkd' 'feh' 
 		'polybar' 'rofi' 'dunst'
