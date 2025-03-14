@@ -29,17 +29,19 @@ package() {
 	local _configdir="$_skeldir"/.config
 	local _wmdir="$_configdir"/bspwm
 	local _fontdir="$_skeldir"/.local/share/fonts
+	
 
 	mkdir -p "$_skeldir" && mkdir -p "$_configdir" && mkdir -p "$_wmdir" && mkdir -p "$_fontdir"
 
 	# Copy window manager configs
 	mv "$srcdir"/alacritty 				"$_configdir"
-  cp -r "$srcdir"/polybar 					"$_wmdir"
-  cp -r "$srcdir"/fonts						"$_fontdir"
+  cp -r "$srcdir"/polybar				"$_wmdir"
+  cp -r "$srcdir"/fonts/*				"$_fontdir"
+  mv "$srcdir"/neofetch         "$_configdir"
 	
-	install -Dm 755 bspwmrc   				"$_wmdir"/bspwmrc
-	install -Dm 644 dunstrc   				"$_wmdir"/dunstrc
-	install -Dm 644 sxhkdrc					"$_wmdir"/sxhkdrc
+	install -Dm 755 bspwmrc				"$_wmdir"/bspwmrc
+	install -Dm 644 dunstrc				"$_wmdir"/dunstrc
+	install -Dm 644 sxhkdrc				"$_wmdir"/sxhkdrc
 
 	# Make executable
 	chmod +x "$_wmdir"/polybar/launch.sh
