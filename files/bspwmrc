@@ -1,8 +1,6 @@
 #! /bin/sh
 
-sxhkd &
-
-pgrep -x sxhkd > /dev/null || sxhkd &
+sxhkd -c $HOME/.config/bspwm/sxhkdrc &
 
 bspc monitor -d I II III IV 
 #V VI VII VIII IX X
@@ -21,7 +19,7 @@ bspc rule -a Kupfer.py focus=on
 bspc rule -a Screenkey manage=off
 
 # POLYBAR
-~/.config/polybar/launch.sh &
+$HOME/.config/bspwm/polybar/launch.sh &
 
 feh --bg-fill /usr/share/backgrounds/himalaya-day.png
 

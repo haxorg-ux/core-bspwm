@@ -28,12 +28,14 @@ package() {
 	local _skeldir="$pkgdir"/etc/skel
 	local _configdir="$_skeldir"/.config
 	local _wmdir="$_configdir"/bspwm
+	local _fontdir="$_skeldir"/.local/share/fonts
 
-	mkdir -p "$_skeldir" && mkdir -p "$_configdir" && mkdir -p "$_wmdir"
+	mkdir -p "$_skeldir" && mkdir -p "$_configdir" && mkdir -p "$_wmdir" && mkdir -p "$_fontdir"
 
 	# Copy window manager configs
-	cp -r "$srcdir"/alacritty 				"$_wmdir"
+	mv "$srcdir"/alacritty 				"$_configdir"
   cp -r "$srcdir"/polybar 					"$_wmdir"
+  cp -r "$srcdir"/fonts						"$_fontdir"
 	
 	install -Dm 755 bspwmrc   				"$_wmdir"/bspwmrc
 	install -Dm 644 dunstrc   				"$_wmdir"/dunstrc
